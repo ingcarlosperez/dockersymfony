@@ -1,4 +1,4 @@
-This Docker container allows you to run a PHP Symfony Framework project.
+These Docker files allows you to run a PHP Symfony Framework project.
 
 
 
