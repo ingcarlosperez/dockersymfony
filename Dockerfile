@@ -27,7 +27,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         pdo_mysql \
         xml \
         curl \
-        mbstring
+        mbstring \
+        opcache
 
 RUN pecl install xdebug \
     && rm -rf /tmp/pear \
@@ -38,4 +39,5 @@ RUN pecl install xdebug \
 RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
 RUN wget https://get.symfony.com/cli/installer -O - | bash && mv /root/.symfony/bin/symfony /usr/local/bin/symfony
 COPY ./build/xdebug/xdebug.ini $PHP_INI_DIR/conf.d/docker-php-ext-xdebug.ini
+COPY ./build/opcache/opcache.ini $PHP_INI_DIR/conf.d/ddocker-php-ext-opcache.ini
 WORKDIR /var/www/symfony
